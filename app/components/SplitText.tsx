@@ -29,7 +29,7 @@ export default function SplitText({
 
   return (
     <Tag
-      ref={ref as any}
+ref={ref as any} // eslint-disable-line
       className={className}
       style={{ display: "block", ...style }}
     >
