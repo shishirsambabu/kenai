@@ -133,6 +133,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="alternate" type="application/rss+xml" title="kenai" href={`${SITE.url}/sitemap.xml`} />
+      </head>
       <body>
         <GlobalJsonLd />
         {children}

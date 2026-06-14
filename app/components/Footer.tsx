@@ -91,11 +91,23 @@ export default function Footer() {
               <FooterLink href="/case-studies" internal>
                 Case studies
               </FooterLink>
+              <FooterLink href="/about" internal>
+                About / founder
+              </FooterLink>
+              <FooterLink href="/#contact">Book</FooterLink>
+            </FooterCol>
+            <FooterCol title="Resources">
               <FooterLink href="/tools/ai-readiness" internal>
                 AI readiness tool
               </FooterLink>
+              <FooterLink href="/glossary" internal>
+                AI glossary
+              </FooterLink>
+              <FooterLink href="/compare/claude-vs-chatgpt" internal>
+                Claude vs ChatGPT
+              </FooterLink>
+              <FooterLink href="/#newsletter">Newsletter</FooterLink>
               <FooterLink href="/#faq">FAQ</FooterLink>
-              <FooterLink href="/#contact">Book</FooterLink>
             </FooterCol>
             <FooterCol title="Services">
               {SERVICES.slice(0, 6).map((s) => (

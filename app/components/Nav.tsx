@@ -8,8 +8,8 @@ const NAV_LINKS = [
   { label: "Industries", href: "/industries" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Tools", href: "/tools/ai-readiness" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Founder", href: "#about" },
+  { label: "Glossary", href: "/glossary" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Nav() {

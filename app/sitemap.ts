@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SERVICES, SITE } from "./lib/services";
 import { INDUSTRIES } from "./lib/industries";
 import { CASE_STUDIES } from "./lib/caseStudies";
+import { GLOSSARY } from "./lib/glossary";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -10,6 +11,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE.url}/industries`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE.url}/case-studies`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${SITE.url}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE.url}/glossary`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE.url}/compare/claude-vs-chatgpt`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE.url}/tools/ai-readiness`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     ...SERVICES.map((s) => ({
       url: `${SITE.url}/services/${s.slug}`,
@@ -28,6 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
+    })),
+    ...GLOSSARY.map((t) => ({
+      url: `${SITE.url}/glossary/${t.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
     })),
   ];
 }

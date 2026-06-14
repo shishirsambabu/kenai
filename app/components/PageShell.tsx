@@ -79,6 +79,12 @@ export default function PageShell({ children }: { children: React.ReactNode }) {
             <Link href="/tools/ai-readiness" className="nav-link nav-hide-sm">
               Tools
             </Link>
+            <Link href="/glossary" className="nav-link nav-hide-sm">
+              Glossary
+            </Link>
+            <Link href="/about" className="nav-link nav-hide-sm">
+              About
+            </Link>
             <a
               href="/#contact"
               style={{

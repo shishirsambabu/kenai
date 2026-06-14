@@ -17,9 +17,11 @@ import ProofSection from "./components/ProofSection";
 import GumroadSection from "./components/GumroadSection";
 import ResourcesSection from "./components/ResourcesSection";
 import BlogSection from "./components/BlogSection";
+import NewsletterSection from "./components/NewsletterSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import ParticleField from "./components/ParticleField";
+import StickyCTA from "./components/StickyCTA";
 
 export default function Home() {
   const [heroStarted, setHeroStarted] = useState(false);
@@ -49,9 +51,11 @@ export default function Home() {
         <AboutSection />
         <ProofSection />
         <FaqSection />
+        <NewsletterSection />
         <ContactSection />
       </main>
 
+      <StickyCTA />
       <Footer />
     </>
   );
