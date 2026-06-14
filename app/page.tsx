@@ -6,7 +6,9 @@ import BootSequence from "./components/BootSequence";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import WhatSection from "./components/WhatSection";
+import ServicesSection from "./components/ServicesSection";
 import OfferingsSection from "./components/OfferingsSection";
+import FaqSection from "./components/FaqSection";
 import ApproachSection from "./components/ApproachSection";
 import AboutSection from "./components/AboutSection";
 import ProofSection from "./components/ProofSection";
@@ -34,6 +36,7 @@ export default function Home() {
       <main style={{ position: "relative", zIndex: 2 }}>
         <Hero started={heroStarted} />
         <WhatSection />
+        <ServicesSection />
         <OfferingsSection />
         <ApproachSection />
         <GumroadSection />
@@ -41,6 +44,7 @@ export default function Home() {
         <BlogSection />
         <AboutSection />
         <ProofSection />
+        <FaqSection />
         <ContactSection />
       </main>
 

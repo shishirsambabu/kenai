@@ -1,5 +1,8 @@
 "use client";
 
+import Link from "next/link";
+import { SERVICES } from "../lib/services";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -77,31 +80,30 @@ export default function Footer() {
             </p>
           </div>
 
-          <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
-            {[
-              ["What", "#what"],
-              ["Offerings", "#offerings"],
-              ["Approach", "#approach"],
-              ["Founder", "#about"],
-              ["Book", "#contact"],
-            ].map(([label, href]) => (
-              <a
-                key={label}
-                href={href}
-                style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: 12,
-                  letterSpacing: "0.06em",
-                  color: "#7a7f93",
-                  textDecoration: "none",
-                  transition: "color .2s",
-                }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#00F0FF")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "#7a7f93")}
-              >
-                {label}
-              </a>
-            ))}
+          <div style={{ display: "flex", gap: 48, flexWrap: "wrap" }}>
+            <FooterCol title="Explore">
+              <FooterLink href="/services" internal>
+                All services
+              </FooterLink>
+              <FooterLink href="/#offerings">Offerings</FooterLink>
+              <FooterLink href="/#about">Founder</FooterLink>
+              <FooterLink href="/#faq">FAQ</FooterLink>
+              <FooterLink href="/#contact">Book</FooterLink>
+            </FooterCol>
+            <FooterCol title="Services">
+              {SERVICES.slice(0, 6).map((s) => (
+                <FooterLink key={s.slug} href={`/services/${s.slug}`} internal>
+                  {s.name}
+                </FooterLink>
+              ))}
+            </FooterCol>
+            <FooterCol title="More services">
+              {SERVICES.slice(6).map((s) => (
+                <FooterLink key={s.slug} href={`/services/${s.slug}`} internal>
+                  {s.name}
+                </FooterLink>
+              ))}
+            </FooterCol>
           </div>
         </div>
 
@@ -130,5 +132,61 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+      <span
+        style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 10.5,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "#00F0FF",
+          marginBottom: 2,
+        }}
+      >
+        {title}
+      </span>
+      {children}
+    </div>
+  );
+}
+
+function FooterLink({
+  href,
+  internal,
+  children,
+}: {
+  href: string;
+  internal?: boolean;
+  children: React.ReactNode;
+}) {
+  const style: React.CSSProperties = {
+    fontFamily: "'JetBrains Mono', monospace",
+    fontSize: 12,
+    letterSpacing: "0.04em",
+    color: "#7a7f93",
+    textDecoration: "none",
+    transition: "color .2s",
+  };
+  const onEnter = (e: React.MouseEvent<HTMLElement>) =>
+    ((e.currentTarget as HTMLElement).style.color = "#00F0FF");
+  const onLeave = (e: React.MouseEvent<HTMLElement>) =>
+    ((e.currentTarget as HTMLElement).style.color = "#7a7f93");
+
+  if (internal) {
+    return (
+      <Link href={href} style={style} onMouseEnter={onEnter} onMouseLeave={onLeave}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a href={href} style={style} onMouseEnter={onEnter} onMouseLeave={onLeave}>
+      {children}
+    </a>
   );
 }
