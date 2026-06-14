@@ -70,12 +70,15 @@ export default function PageShell({ children }: { children: React.ReactNode }) {
             <Link href="/services" className="nav-link">
               Services
             </Link>
-            <a href="/#offerings" className="nav-link nav-hide-sm">
-              Offerings
-            </a>
-            <a href="/#about" className="nav-link nav-hide-sm">
-              Founder
-            </a>
+            <Link href="/industries" className="nav-link nav-hide-sm">
+              Industries
+            </Link>
+            <Link href="/case-studies" className="nav-link nav-hide-sm">
+              Case Studies
+            </Link>
+            <Link href="/tools/ai-readiness" className="nav-link nav-hide-sm">
+              Tools
+            </Link>
             <a
               href="/#contact"
               style={{
@@ -130,6 +133,12 @@ export default function PageShell({ children }: { children: React.ReactNode }) {
           <span style={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
             <Link href="/services" style={{ color: "#7a7f93", textDecoration: "none" }}>
               Services
+            </Link>
+            <Link href="/industries" style={{ color: "#7a7f93", textDecoration: "none" }}>
+              Industries
+            </Link>
+            <Link href="/case-studies" style={{ color: "#7a7f93", textDecoration: "none" }}>
+              Case Studies
             </Link>
             <a href="/#contact" style={{ color: "#00F0FF", textDecoration: "none" }}>
               Book a workshop &gt;_

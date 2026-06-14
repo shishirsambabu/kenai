@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 import SectionReveal from "./SectionReveal";
 import Eyebrow from "./Eyebrow";
 
@@ -129,6 +130,31 @@ export default function ProofSection() {
             </span>{" "}
             and started building.
           </h2>
+        </SectionReveal>
+
+        <SectionReveal style={{ marginBottom: 36 }}>
+          <Link
+            href="/case-studies"
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontWeight: 700,
+              fontSize: 12.5,
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 10,
+              padding: "12px 22px",
+              color: "#00F0FF",
+              background: "transparent",
+              boxShadow: "inset 0 0 0 1px rgba(0,240,255,0.5)",
+              clipPath: "polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)",
+              cursor: "none",
+            }}
+          >
+            &gt; Read the case studies
+          </Link>
         </SectionReveal>
 
         <div

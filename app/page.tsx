@@ -7,6 +7,8 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import WhatSection from "./components/WhatSection";
 import ServicesSection from "./components/ServicesSection";
+import IndustriesSection from "./components/IndustriesSection";
+import ToolCtaSection from "./components/ToolCtaSection";
 import OfferingsSection from "./components/OfferingsSection";
 import FaqSection from "./components/FaqSection";
 import ApproachSection from "./components/ApproachSection";
@@ -37,8 +39,10 @@ export default function Home() {
         <Hero started={heroStarted} />
         <WhatSection />
         <ServicesSection />
+        <IndustriesSection />
         <OfferingsSection />
         <ApproachSection />
+        <ToolCtaSection />
         <GumroadSection />
         <ResourcesSection />
         <BlogSection />

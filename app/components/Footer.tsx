@@ -85,8 +85,15 @@ export default function Footer() {
               <FooterLink href="/services" internal>
                 All services
               </FooterLink>
-              <FooterLink href="/#offerings">Offerings</FooterLink>
-              <FooterLink href="/#about">Founder</FooterLink>
+              <FooterLink href="/industries" internal>
+                Industries
+              </FooterLink>
+              <FooterLink href="/case-studies" internal>
+                Case studies
+              </FooterLink>
+              <FooterLink href="/tools/ai-readiness" internal>
+                AI readiness tool
+              </FooterLink>
               <FooterLink href="/#faq">FAQ</FooterLink>
               <FooterLink href="/#contact">Book</FooterLink>
             </FooterCol>
