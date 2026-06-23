@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
-  { label: "What", href: "#what" },
-  { label: "Offerings", href: "#offerings" },
-  { label: "Products", href: "#products" },
-  { label: "Resources", href: "#resources" },
-  { label: "Blog", href: "#blog" },
-  { label: "Founder", href: "#about" },
+  { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
+  { label: "Locations", href: "/locations" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Tools", href: "/tools/ai-readiness" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Nav() {

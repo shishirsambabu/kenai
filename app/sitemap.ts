@@ -1,0 +1,63 @@
+import type { MetadataRoute } from "next";
+import { SERVICES, SITE } from "./lib/services";
+import { INDUSTRIES } from "./lib/industries";
+import { CASE_STUDIES } from "./lib/caseStudies";
+import { GLOSSARY } from "./lib/glossary";
+import { LOCATIONS, LOCALIZED_SERVICE_SLUGS } from "./lib/locations";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+  const locationServicePages: MetadataRoute.Sitemap = [];
+  for (const loc of LOCATIONS) {
+    for (const svc of LOCALIZED_SERVICE_SLUGS) {
+      locationServicePages.push({
+        url: `${SITE.url}/locations/${loc.slug}/${svc}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      });
+    }
+  }
+  return [
+    { url: SITE.url, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${SITE.url}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${SITE.url}/industries`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${SITE.url}/locations`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${SITE.url}/case-studies`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${SITE.url}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE.url}/glossary`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE.url}/compare/claude-vs-chatgpt`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE.url}/tools/ai-readiness`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    ...SERVICES.map((s) => ({
+      url: `${SITE.url}/services/${s.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    ...INDUSTRIES.map((i) => ({
+      url: `${SITE.url}/industries/${i.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    ...LOCATIONS.map((l) => ({
+      url: `${SITE.url}/locations/${l.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    ...locationServicePages,
+    ...CASE_STUDIES.map((c) => ({
+      url: `${SITE.url}/case-studies/${c.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    ...GLOSSARY.map((t) => ({
+      url: `${SITE.url}/glossary/${t.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+  ];
+}

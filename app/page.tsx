@@ -6,16 +6,23 @@ import BootSequence from "./components/BootSequence";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import WhatSection from "./components/WhatSection";
+import ServicesSection from "./components/ServicesSection";
+import IndustriesSection from "./components/IndustriesSection";
+import LocationsSection from "./components/LocationsSection";
+import ToolCtaSection from "./components/ToolCtaSection";
 import OfferingsSection from "./components/OfferingsSection";
+import FaqSection from "./components/FaqSection";
 import ApproachSection from "./components/ApproachSection";
 import AboutSection from "./components/AboutSection";
 import ProofSection from "./components/ProofSection";
 import GumroadSection from "./components/GumroadSection";
 import ResourcesSection from "./components/ResourcesSection";
 import BlogSection from "./components/BlogSection";
+import NewsletterSection from "./components/NewsletterSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import ParticleField from "./components/ParticleField";
+import StickyCTA from "./components/StickyCTA";
 
 export default function Home() {
   const [heroStarted, setHeroStarted] = useState(false);
@@ -34,16 +41,23 @@ export default function Home() {
       <main style={{ position: "relative", zIndex: 2 }}>
         <Hero started={heroStarted} />
         <WhatSection />
+        <ServicesSection />
+        <IndustriesSection />
+        <LocationsSection />
         <OfferingsSection />
         <ApproachSection />
+        <ToolCtaSection />
         <GumroadSection />
         <ResourcesSection />
         <BlogSection />
         <AboutSection />
         <ProofSection />
+        <FaqSection />
+        <NewsletterSection />
         <ContactSection />
       </main>
 
+      <StickyCTA />
       <Footer />
     </>
   );
