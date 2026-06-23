@@ -73,6 +73,9 @@ export default function PageShell({ children }: { children: React.ReactNode }) {
             <Link href="/industries" className="nav-link nav-hide-sm">
               Industries
             </Link>
+            <Link href="/locations" className="nav-link nav-hide-sm">
+              Locations
+            </Link>
             <Link href="/case-studies" className="nav-link nav-hide-sm">
               Case Studies
             </Link>

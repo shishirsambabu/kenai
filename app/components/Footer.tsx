@@ -88,6 +88,9 @@ export default function Footer() {
               <FooterLink href="/industries" internal>
                 Industries
               </FooterLink>
+              <FooterLink href="/locations" internal>
+                Locations
+              </FooterLink>
               <FooterLink href="/case-studies" internal>
                 Case studies
               </FooterLink>

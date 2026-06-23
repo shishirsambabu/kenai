@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { SITE, SERVICES } from "./lib/services";
+import { LOCATIONS } from "./lib/locations";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -82,7 +83,13 @@ function GlobalJsonLd() {
         url: SITE.url,
         email: SITE.email,
         priceRange: "$$",
-        areaServed: ["IN", "Worldwide"],
+        areaServed: [
+          { "@type": "Country", name: "India" },
+          ...LOCATIONS.filter((l) => l.type !== "country").map((l) => ({
+            "@type": l.schemaType,
+            name: l.name,
+          })),
+        ],
         parentOrganization: { "@id": `${SITE.url}/#organization` },
         hasOfferCatalog: {
           "@type": "OfferCatalog",

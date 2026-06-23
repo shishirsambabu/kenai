@@ -1,6 +1,7 @@
 import { SERVICES, SITE } from "../lib/services";
 import { INDUSTRIES } from "../lib/industries";
 import { CASE_STUDIES } from "../lib/caseStudies";
+import { LOCATIONS } from "../lib/locations";
 
 // llms.txt — a concise, machine-readable brief for AI search engines and
 // LLMs (ChatGPT, Claude, Gemini, Perplexity, Copilot). Served at /llms.txt.
@@ -37,6 +38,17 @@ export function GET() {
   lines.push("## Case studies");
   for (const c of CASE_STUDIES) {
     lines.push(`- [${c.title}](${SITE.url}/case-studies/${c.slug}): ${c.summary}`);
+  }
+  lines.push("");
+
+  lines.push("## Locations served");
+  lines.push(
+    `${SITE.name} provides AI training, corporate workshops, AI consulting and automation across India — on-site and online. Geographies served include ${LOCATIONS.map(
+      (l) => l.name
+    ).join(", ")}.`
+  );
+  for (const l of LOCATIONS) {
+    lines.push(`- [AI training in ${l.name}](${SITE.url}/locations/${l.slug}): ${l.blurb}`);
   }
   lines.push("");
 

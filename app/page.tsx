@@ -8,6 +8,7 @@ import Hero from "./components/Hero";
 import WhatSection from "./components/WhatSection";
 import ServicesSection from "./components/ServicesSection";
 import IndustriesSection from "./components/IndustriesSection";
+import LocationsSection from "./components/LocationsSection";
 import ToolCtaSection from "./components/ToolCtaSection";
 import OfferingsSection from "./components/OfferingsSection";
 import FaqSection from "./components/FaqSection";
@@ -42,6 +43,7 @@ export default function Home() {
         <WhatSection />
         <ServicesSection />
         <IndustriesSection />
+        <LocationsSection />
         <OfferingsSection />
         <ApproachSection />
         <ToolCtaSection />
