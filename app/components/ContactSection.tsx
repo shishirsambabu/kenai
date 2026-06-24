@@ -12,18 +12,38 @@ export default function ContactSection() {
   const [msg, setMsg] = useState("");
   const [status, setStatus] = useState<{ text: string; isError: boolean } | null>(null);
 
-  const submit = () => {
+  const submit = async () => {
     if (!name.trim() || !email.trim()) {
       setStatus({ text: "> error: name & email required", isError: true });
       return;
     }
-    setStatus({
-      text: `> request queued for "${type}" — we'll reply to ${email} ✦`,
-      isError: false,
-    });
-    setName("");
-    setEmail("");
-    setMsg("");
+    setStatus({ text: "> transmitting...", isError: false });
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          type,
+          message: msg,
+          source: "homepage-contact",
+        }),
+      });
+      if (!res.ok) throw new Error("failed");
+      setStatus({
+        text: `> request queued for "${type}" — we'll reply to ${email} ✦`,
+        isError: false,
+      });
+      setName("");
+      setEmail("");
+      setMsg("");
+    } catch {
+      setStatus({
+        text: `> network error — email hello@kenai.in directly`,
+        isError: true,
+      });
+    }
   };
 
   return (
