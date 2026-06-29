@@ -37,6 +37,8 @@ export async function GET() {
   lines.push("");
 
   lines.push("## Core pages");
+  lines.push(`- [3-Day AI Bootcamp](${u("/bootcamp")}): flagship hands-on program — ₹6,999. Day 1 Claude architecture, Day 2 Claude Cowork & Claude Code, Day 3 automation with Codex & agents`);
+  lines.push(`- [Pricing](${u("/pricing")}): bootcamp ₹6,999; workshops, corporate training & advisory custom-quoted`);
   lines.push(`- [About Shishir Babu](${u("/about")}): founder, credentials and methodology`);
   lines.push(`- [Services](${u("/services")}): all AI training & consulting services`);
   lines.push(`- [Industries](${u("/industries")}): AI solutions by sector`);

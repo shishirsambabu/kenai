@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { addLead } from "../../lib/leads-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -49,6 +50,13 @@ export async function POST(req: Request) {
 
   // Always log — visible in server logs even without a webhook configured.
   console.log("[kenai:lead]", JSON.stringify(lead));
+
+  // Persist to the enquiry store so it shows up in the /admin dashboard.
+  try {
+    await addLead(lead);
+  } catch (err) {
+    console.error("[kenai:lead] store_failed", err);
+  }
 
   // Forward to the configured pipeline if available.
   const webhook = process.env.LEAD_WEBHOOK_URL;

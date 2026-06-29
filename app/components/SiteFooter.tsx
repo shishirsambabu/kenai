@@ -101,8 +101,10 @@ export default function SiteFooter() {
 
           {/* Services */}
           <div>
-            <div style={colHead}>Services</div>
-            {services.slice(0, 6).map((s) => (
+            <div style={colHead}>Train with kenai</div>
+            <FooterLink href="/bootcamp">3-Day AI Bootcamp · ₹6,999</FooterLink>
+            <FooterLink href="/pricing">Pricing</FooterLink>
+            {services.slice(0, 4).map((s) => (
               <FooterLink key={s.slug} href={`/services/${s.slug}`}>
                 {s.shortName}
               </FooterLink>

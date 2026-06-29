@@ -5,10 +5,10 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const LINKS = [
+  { label: "Bootcamp", href: "/bootcamp" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
   { label: "Glossary", href: "/glossary" },
-  { label: "Claude vs ChatGPT", href: "/compare/claude-vs-chatgpt" },
   { label: "Tools", href: "/tools/ai-readiness" },
   { label: "About", href: "/about" },
 ];

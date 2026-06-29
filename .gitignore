@@ -10,6 +10,9 @@
 # production
 /build
 
+# lead store (runtime data)
+/.data
+
 # misc
 .DS_Store
 *.pem

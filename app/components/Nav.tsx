@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
-  { label: "What", href: "#what" },
+  { label: "Bootcamp", href: "/bootcamp" },
   { label: "Services", href: "/services" },
-  { label: "Products", href: "#products" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Glossary", href: "/glossary" },
   { label: "Tools", href: "/tools/ai-readiness" },
   { label: "About", href: "/about" },

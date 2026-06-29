@@ -7,6 +7,7 @@
 
 import { siteConfig, founder, sameAs, absoluteUrl } from "./site";
 import type { Service, Industry, GlossaryTerm, FAQ } from "./catalog";
+import type { Program } from "./programs";
 
 const ORG_ID = `${siteConfig.url}/#organization`;
 const PERSON_ID = `${siteConfig.url}/#shishir-babu`;
@@ -187,6 +188,56 @@ export function articleSchema(opts: {
     datePublished: opts.datePublished ?? "2026-01-01",
     dateModified: opts.dateModified ?? new Date().toISOString().slice(0, 10),
     mainEntityOfPage: absoluteUrl(opts.path),
+  };
+}
+
+/** Course schema for a training program (Google course rich results). */
+export function courseSchema(program: Program) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: program.name,
+    description: program.summary,
+    url: absoluteUrl(`/${program.slug === "ai-bootcamp" ? "bootcamp" : program.slug}`),
+    provider: { "@id": ORG_ID },
+    educationalLevel: program.level,
+    inLanguage: "en",
+    teaches: program.outcomes,
+    hasCourseInstance: [
+      {
+        "@type": "CourseInstance",
+        courseMode: ["online", "onsite"],
+        courseWorkload: `P${program.durationDays}D`,
+        instructor: { "@id": PERSON_ID },
+      },
+    ],
+    offers: {
+      "@type": "Offer",
+      price: String(program.priceINR),
+      priceCurrency: "INR",
+      category: "Paid",
+      availability: "https://schema.org/InStock",
+      url: absoluteUrl("/bootcamp"),
+    },
+  };
+}
+
+/** Offer list for the pricing page. */
+export function offerCatalogSchema(
+  items: { name: string; price: string; url: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    name: "kenai pricing",
+    itemListElement: items.map((it) => ({
+      "@type": "Offer",
+      name: it.name,
+      price: it.price,
+      priceCurrency: "INR",
+      url: absoluteUrl(it.url),
+      seller: { "@id": ORG_ID },
+    })),
   };
 }
 

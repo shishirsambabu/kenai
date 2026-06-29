@@ -6,6 +6,7 @@ import BootSequence from "./components/BootSequence";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import WhatSection from "./components/WhatSection";
+import BootcampBanner from "./components/BootcampBanner";
 import OfferingsSection from "./components/OfferingsSection";
 import ApproachSection from "./components/ApproachSection";
 import AboutSection from "./components/AboutSection";
@@ -36,6 +37,7 @@ export default function Home() {
       <main style={{ position: "relative", zIndex: 2 }}>
         <Hero started={heroStarted} />
         <WhatSection />
+        <BootcampBanner />
         <OfferingsSection />
         <ApproachSection />
         <GumroadSection />
