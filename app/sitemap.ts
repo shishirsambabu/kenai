@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "./lib/site";
 import { services, industries, glossary } from "./lib/catalog";
+import { locations } from "./lib/locations";
+import { audiences } from "./lib/audiences";
+import { comparisons } from "./lib/comparisons";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -26,7 +29,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    { url: url("/ai-training"), lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: url("/ai-for"), lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
+
+  const locationPages: MetadataRoute.Sitemap = locations.map((l) => ({
+    url: url(`/ai-training/${l.slug}`),
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  const audiencePages: MetadataRoute.Sitemap = audiences.map((a) => ({
+    url: url(`/ai-for/${a.slug}`),
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  const comparePages: MetadataRoute.Sitemap = comparisons.map((c) => ({
+    url: url(`/compare/${c.slug}`),
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
 
   const servicePages: MetadataRoute.Sitemap = services.map((s) => ({
     url: url(`/services/${s.slug}`),
@@ -49,5 +75,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...servicePages, ...industryPages, ...glossaryPages];
+  return [
+    ...staticPages,
+    ...servicePages,
+    ...industryPages,
+    ...glossaryPages,
+    ...locationPages,
+    ...audiencePages,
+    ...comparePages,
+  ];
 }

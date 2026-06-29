@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { services, industries, glossary } from "../lib/catalog";
+import { services, glossary } from "../lib/catalog";
 import { siteConfig, contact } from "../lib/site";
 
 /**
@@ -127,15 +127,13 @@ export default function SiteFooter() {
             <FooterLink href="/tools/ai-readiness">AI Readiness Tool</FooterLink>
           </div>
 
-          {/* Company / Industries */}
+          {/* Company / Explore */}
           <div>
-            <div style={colHead}>Company</div>
+            <div style={colHead}>Company &amp; Explore</div>
             <FooterLink href="/about">About Shishir Babu</FooterLink>
-            {industries.slice(0, 3).map((i) => (
-              <FooterLink key={i.slug} href={`/industries/${i.slug}`}>
-                {i.name.replace("AI for ", "")}
-              </FooterLink>
-            ))}
+            <FooterLink href="/ai-training">AI Training by City</FooterLink>
+            <FooterLink href="/ai-for">AI Training by Role</FooterLink>
+            <FooterLink href="/industries">By Industry</FooterLink>
             <FooterLink href="/#products">Products</FooterLink>
             <FooterLink href="/#resources">Free Resources</FooterLink>
             <FooterLink href="/#contact">Book / Contact</FooterLink>

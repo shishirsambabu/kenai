@@ -1,5 +1,8 @@
 import { siteConfig, founder, contact } from "../lib/site";
 import { services, industries, glossary } from "../lib/catalog";
+import { locations } from "../lib/locations";
+import { audiences } from "../lib/audiences";
+import { comparisons } from "../lib/comparisons";
 
 export const dynamic = "force-static";
 
@@ -63,6 +66,25 @@ export async function GET() {
   for (const g of glossary) {
     const name = g.abbr ? `${g.term} (${g.abbr})` : g.term;
     lines.push(`- [${name}](${u(`/glossary/${g.slug}`)}): ${g.definition}`);
+  }
+  lines.push("");
+
+  lines.push("## AI training by city");
+  for (const l of locations) {
+    lines.push(`- [AI Training in ${l.city}](${u(`/ai-training/${l.slug}`)})`);
+  }
+  lines.push("");
+
+  lines.push("## AI training by role");
+  for (const a of audiences) {
+    lines.push(`- [${a.name}](${u(`/ai-for/${a.slug}`)}): ${a.tagline}`);
+  }
+  lines.push("");
+
+  lines.push("## AI tool comparisons");
+  lines.push(`- [Claude vs ChatGPT](${u("/compare/claude-vs-chatgpt")})`);
+  for (const c of comparisons) {
+    lines.push(`- [${c.title}](${u(`/compare/${c.slug}`)})`);
   }
   lines.push("");
 

@@ -674,6 +674,152 @@ export const glossary: GlossaryTerm[] = [
     ],
     related: ["large-language-model", "prompt-engineering", "retrieval-augmented-generation"],
   },
+  {
+    slug: "machine-learning",
+    term: "Machine Learning",
+    abbr: "ML",
+    category: "Foundations",
+    definition:
+      "Machine learning is a type of AI where systems learn patterns from data and improve at a task, instead of being explicitly programmed with rules.",
+    body: [
+      "Machine learning is the engine under most modern AI, including the large language models behind Claude and ChatGPT. The model is 'trained' on data and learns to make predictions.",
+      "You don't need to build ML models to use AI well — but understanding the idea helps you trust the output appropriately, which is exactly what kenai teaches.",
+    ],
+    related: ["artificial-intelligence", "large-language-model", "neural-network"],
+  },
+  {
+    slug: "neural-network",
+    term: "Neural Network",
+    category: "Foundations",
+    definition:
+      "A neural network is a machine-learning model loosely inspired by the brain, made of layered 'neurons' that learn to recognise patterns in data.",
+    body: [
+      "Neural networks power today's AI — from image recognition to the large language models behind chat assistants.",
+      "kenai keeps the theory light and the practice heavy: you don't need to build neural networks to use AI productively at work.",
+    ],
+    related: ["machine-learning", "large-language-model", "transformer"],
+  },
+  {
+    slug: "transformer",
+    term: "Transformer",
+    category: "Advanced",
+    definition:
+      "A transformer is the neural-network architecture behind modern large language models, designed to process sequences of text and weigh which parts matter most.",
+    body: [
+      "Introduced in 2017, the transformer is why today's AI is so capable with language. Claude, ChatGPT and Gemini are all built on transformer architectures.",
+      "It's useful background, but kenai focuses on what you can do with these models, not the math inside them.",
+    ],
+    related: ["large-language-model", "neural-network", "generative-ai"],
+  },
+  {
+    slug: "token",
+    term: "Token",
+    category: "Foundations",
+    definition:
+      "A token is a chunk of text — roughly a word or part of a word — that an AI model reads and generates. Models measure input and output length in tokens.",
+    body: [
+      "Understanding tokens helps you grasp context limits and pricing: longer prompts and responses use more tokens.",
+      "It's a small concept with practical payoff, which is why kenai covers it when teaching prompting and context.",
+    ],
+    related: ["context-window", "large-language-model", "prompt-engineering"],
+  },
+  {
+    slug: "chatgpt",
+    term: "ChatGPT",
+    category: "Tools",
+    definition:
+      "ChatGPT is a popular AI assistant made by OpenAI, built on large language models. It can write, summarise, code, analyse and answer questions in natural language.",
+    body: [
+      "ChatGPT helped bring generative AI mainstream and offers a broad ecosystem — custom GPTs, image generation and plugins.",
+      "kenai teaches teams to use ChatGPT (and alternatives like Claude and Gemini) well, with the judgment to pick the right tool per task.",
+    ],
+    related: ["large-language-model", "claude", "generative-ai"],
+  },
+  {
+    slug: "claude",
+    term: "Claude",
+    category: "Tools",
+    definition:
+      "Claude is an AI assistant made by Anthropic, known for thoughtful writing, strong reasoning over long documents, and a safety-first design.",
+    body: [
+      "Many professionals prefer Claude for nuanced, people-centric work — which is why kenai's HR and L&D programs are often Claude-native.",
+      "Claude also powers developer tools like Claude Code, used for building and automating real work hands-on.",
+    ],
+    related: ["large-language-model", "chatgpt", "model-context-protocol"],
+  },
+  {
+    slug: "embedding",
+    term: "Embedding",
+    category: "Advanced",
+    definition:
+      "An embedding is a numerical representation of text (or other data) that captures its meaning, letting AI systems compare and search by similarity.",
+    body: [
+      "Embeddings are how AI 'understands' that two differently-worded sentences mean the same thing — the foundation of semantic search and RAG.",
+      "kenai introduces embeddings for teams ready to build AI on top of their own knowledge base.",
+    ],
+    related: ["retrieval-augmented-generation", "large-language-model", "fine-tuning"],
+  },
+  {
+    slug: "multimodal-ai",
+    term: "Multimodal AI",
+    category: "Foundations",
+    definition:
+      "Multimodal AI is AI that can work with more than one type of input or output — for example text, images, audio and video together.",
+    body: [
+      "Multimodal models can describe an image, read a chart, or turn a sketch into code, opening up new everyday use cases.",
+      "kenai shows teams practical multimodal workflows — like turning screenshots, documents and slides into useful output.",
+    ],
+    related: ["generative-ai", "large-language-model", "artificial-intelligence"],
+  },
+  {
+    slug: "ai-copilot",
+    term: "AI Copilot",
+    category: "Skills",
+    definition:
+      "An AI copilot is an AI assistant embedded in your tools that helps you work — suggesting, drafting and automating alongside you rather than replacing you.",
+    body: [
+      "Copilots live inside the apps you already use, from coding to documents to spreadsheets, acting as an always-available assistant.",
+      "kenai helps teams build and use copilots for their real workflows — the 'AI as co-worker' model.",
+    ],
+    related: ["ai-agent", "prompt-engineering", "generative-ai"],
+  },
+  {
+    slug: "agentic-ai",
+    term: "Agentic AI",
+    category: "Advanced",
+    definition:
+      "Agentic AI refers to AI systems that can plan and take multi-step actions toward a goal — using tools and making decisions with limited human input.",
+    body: [
+      "Where a chatbot answers, an agentic system acts: researching, updating records, or running a workflow end to end.",
+      "kenai teaches teams to build practical agents that handle real, repetitive work reliably.",
+    ],
+    related: ["ai-agent", "workflow-automation", "model-context-protocol"],
+  },
+  {
+    slug: "model-context-protocol",
+    term: "Model Context Protocol",
+    abbr: "MCP",
+    category: "Advanced",
+    definition:
+      "The Model Context Protocol (MCP) is an open standard, introduced by Anthropic, for connecting AI assistants to external tools, data and systems in a consistent way.",
+    body: [
+      "MCP lets an AI like Claude securely use your tools and data, making agents and copilots far more useful in real work.",
+      "kenai covers MCP for teams building serious AI workflows and integrations.",
+    ],
+    related: ["ai-agent", "claude", "agentic-ai"],
+  },
+  {
+    slug: "chain-of-thought",
+    term: "Chain-of-Thought",
+    category: "Skills",
+    definition:
+      "Chain-of-thought is a prompting technique where you ask an AI model to reason step by step, which improves accuracy on complex problems.",
+    body: [
+      "By prompting the model to 'think through' a problem, you often get more reliable, well-reasoned answers.",
+      "It's one of several practical prompting techniques kenai teaches hands-on.",
+    ],
+    related: ["prompt-engineering", "large-language-model", "ai-agent"],
+  },
 ];
 
 /* ------------------------------------------------------------------ */
