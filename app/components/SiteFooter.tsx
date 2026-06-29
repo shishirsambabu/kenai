@@ -115,6 +115,7 @@ export default function SiteFooter() {
           {/* Learn */}
           <div>
             <div style={colHead}>Learn</div>
+            <FooterLink href="/blog">Blog</FooterLink>
             <FooterLink href="/glossary">AI Glossary</FooterLink>
             {glossary.slice(0, 4).map((g) => (
               <FooterLink key={g.slug} href={`/glossary/${g.slug}`}>

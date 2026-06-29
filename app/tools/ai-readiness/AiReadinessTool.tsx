@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { track } from "../../lib/analytics";
 
 type Q = { id: string; q: string; area: string; options: string[] };
 
@@ -138,6 +139,7 @@ export default function AiReadinessTool() {
         }),
       });
       setEmailState(res.ok ? "done" : "error");
+      if (res.ok) track("lead_submit", { source: "readiness", score: pct, tier: tier.name });
     } catch {
       setEmailState("error");
     }
@@ -414,7 +416,10 @@ export default function AiReadinessTool() {
 
       <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
         <button
-          onClick={() => setSubmitted(true)}
+          onClick={() => {
+            track("readiness_complete", { score: pct, tier: tier.name });
+            setSubmitted(true);
+          }}
           disabled={!allAnswered}
           style={{
             fontFamily: "'JetBrains Mono', monospace",

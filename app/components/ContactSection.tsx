@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import SectionReveal from "./SectionReveal";
 import Eyebrow from "./Eyebrow";
+import { track } from "../lib/analytics";
 
 export default function ContactSection() {
   const [name, setName] = useState("");
@@ -31,6 +32,7 @@ export default function ContactSection() {
         }),
       });
       if (!res.ok) throw new Error("failed");
+      track("lead_submit", { source: "contact", type });
       setStatus({
         text: `> request queued for "${type}" — we'll reply to ${email} ✦`,
         isError: false,

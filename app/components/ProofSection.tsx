@@ -4,39 +4,22 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import SectionReveal from "./SectionReveal";
 import Eyebrow from "./Eyebrow";
+import JsonLd from "./JsonLd";
+import { testimonials, type Testimonial } from "../lib/testimonials";
+import { reviewsSchema } from "../lib/schema";
 
-const TESTIMONIALS = [
-  {
-    quote:
-      "Our HR team went from \"AI-curious\" to shipping real automations in a single bootcamp. Sam makes it click.",
-    name: "Head of HR",
-    org: "Enterprise · placeholder",
-    initial: "H",
-  },
-  {
-    quote:
-      "Best AI session our students have had — hands-on, relevant, and zero corporate fluff. They built things they're proud of.",
-    name: "Dean",
-    org: "College · placeholder",
-    initial: "D",
-  },
-  {
-    quote:
-      "Finally an AI trainer who actually does the work. The advisory roadmap alone paid for itself.",
-    name: "Founder",
-    org: "SMB · placeholder",
-    initial: "F",
-  },
-];
+const TESTIMONIALS = testimonials;
 
 const MARQUEE_ITEMS = [
   "HR TEAMS", "·", "CORPORATES", "·", "COLLEGES", "·", "STARTUPS", "·", "L&D LEADERS", "·",
   "HR TEAMS", "·", "CORPORATES", "·", "COLLEGES", "·", "STARTUPS", "·", "L&D LEADERS", "·",
 ];
 
-function TCard({ quote, name, org, initial, delay }: (typeof TESTIMONIALS)[0] & { delay: number }) {
+function TCard({ quote, author, role, org, initial, rating, verified, delay }: Testimonial & { delay: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const name = author || role;
+  const showStars = verified && typeof rating === "number";
 
   return (
     <motion.div
@@ -63,6 +46,12 @@ function TCard({ quote, name, org, initial, delay }: (typeof TESTIMONIALS)[0] & 
       >
         &ldquo;
       </div>
+      {showStars && (
+        <div style={{ color: "#FFC83D", fontSize: 14, letterSpacing: 2, marginTop: 8 }}>
+          {"★".repeat(Math.round(rating as number))}
+          <span style={{ color: "#3a3f52" }}>{"★".repeat(5 - Math.round(rating as number))}</span>
+        </div>
+      )}
       <p style={{ color: "#cfd3e0", fontSize: "1.06rem", margin: "10px 0 20px" }}>{quote}</p>
       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
         <span
@@ -108,8 +97,10 @@ function TCard({ quote, name, org, initial, delay }: (typeof TESTIMONIALS)[0] & 
 }
 
 export default function ProofSection() {
+  const reviews = reviewsSchema(TESTIMONIALS); // null until real testimonials are verified
   return (
     <section id="proof" style={{ position: "relative", padding: "110px 0" }}>
+      {reviews && <JsonLd data={reviews} />}
       <div style={{ width: "min(1180px,92vw)", margin: "0 auto" }}>
         <SectionReveal style={{ marginBottom: 54, maxWidth: 760 }}>
           <Eyebrow>Social proof</Eyebrow>

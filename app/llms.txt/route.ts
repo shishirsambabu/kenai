@@ -3,6 +3,7 @@ import { services, industries, glossary } from "../lib/catalog";
 import { locations } from "../lib/locations";
 import { audiences } from "../lib/audiences";
 import { comparisons } from "../lib/comparisons";
+import { sortedPosts } from "../lib/blog";
 
 export const dynamic = "force-static";
 
@@ -78,6 +79,12 @@ export async function GET() {
   lines.push("## AI training by role");
   for (const a of audiences) {
     lines.push(`- [${a.name}](${u(`/ai-for/${a.slug}`)}): ${a.tagline}`);
+  }
+  lines.push("");
+
+  lines.push("## Blog (articles)");
+  for (const p of sortedPosts()) {
+    lines.push(`- [${p.title}](${u(`/blog/${p.slug}`)}): ${p.excerpt}`);
   }
   lines.push("");
 

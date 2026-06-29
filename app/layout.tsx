@@ -4,6 +4,7 @@ import { siteConfig, founder } from "./lib/site";
 import { siteGraph } from "./lib/schema";
 import JsonLd from "./components/JsonLd";
 import StickyCTA from "./components/StickyCTA";
+import Analytics from "./components/Analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -74,6 +75,7 @@ export default function RootLayout({
       <body>
         {children}
         <StickyCTA />
+        <Analytics />
       </body>
     </html>
   );

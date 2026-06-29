@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import SectionReveal from "./SectionReveal";
 import Eyebrow from "./Eyebrow";
+import { track } from "../lib/analytics";
 
 /**
  * Newsletter capture (community). Funnels into the same lead pipeline as the
@@ -30,7 +31,10 @@ export default function NewsletterSection() {
         }),
       });
       setState(res.ok ? "done" : "error");
-      if (res.ok) setEmail("");
+      if (res.ok) {
+        track("newsletter_signup", { source: "homepage" });
+        setEmail("");
+      }
     } catch {
       setState("error");
     }

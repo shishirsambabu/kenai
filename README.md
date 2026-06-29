@@ -45,6 +45,16 @@ internal links).
   person). Only add verified URLs.
 - **`LEAD_WEBHOOK_URL`** (env var) — point at an n8n / Zapier / Make webhook so
   contact-form, newsletter and readiness-tool leads forward in real time. Without
-  it, leads are logged server-side.
+  it, leads are logged server-side and stored for the `/admin` dashboard.
+- **`ADMIN_PASSCODE`** (env var) — gates the `/admin` booking & enquiry manager.
+  Defaults to `kenai-admin` (the dashboard warns until you change it). Set your
+  own before going live.
+- **Analytics** (optional, nothing loads unless set):
+  `NEXT_PUBLIC_PLAUSIBLE_DOMAIN=kenai.in` and/or `NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX`.
+  Conversion events fired: `lead_submit`, `newsletter_signup`, `readiness_complete`.
+- **Testimonials / review stars** — edit `app/lib/testimonials.ts`. Review +
+  AggregateRating schema (and on-page stars) activate only for entries marked
+  `verified: true` with a real `author` and `rating`. Placeholders emit nothing
+  (never fabricate ratings).
 
 See **`GROWTH.md`** for the full go-live checklist and growth flywheel.

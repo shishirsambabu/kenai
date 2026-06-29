@@ -8,6 +8,7 @@
 import { siteConfig, founder, sameAs, absoluteUrl } from "./site";
 import type { Service, Industry, GlossaryTerm, FAQ } from "./catalog";
 import type { Program } from "./programs";
+import type { Testimonial } from "./testimonials";
 
 const ORG_ID = `${siteConfig.url}/#organization`;
 const PERSON_ID = `${siteConfig.url}/#shishir-babu`;
@@ -237,6 +238,59 @@ export function offerCatalogSchema(
       priceCurrency: "INR",
       url: absoluteUrl(it.url),
       seller: { "@id": ORG_ID },
+    })),
+  };
+}
+
+/** BlogPosting schema for an article. */
+export function blogPostingSchema(opts: {
+  slug: string;
+  title: string;
+  description: string;
+  datePublished: string;
+  dateModified?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: opts.title,
+    description: opts.description,
+    url: absoluteUrl(`/blog/${opts.slug}`),
+    mainEntityOfPage: absoluteUrl(`/blog/${opts.slug}`),
+    image: absoluteUrl(`/blog/${opts.slug}/opengraph-image`),
+    datePublished: opts.datePublished,
+    dateModified: opts.dateModified ?? opts.datePublished,
+    author: { "@id": PERSON_ID },
+    publisher: { "@id": ORG_ID },
+    inLanguage: "en",
+  };
+}
+
+/**
+ * Review + AggregateRating attached to the Organization. Returns null unless
+ * there are genuinely verified, rated testimonials — never fabricates stars.
+ */
+export function reviewsSchema(items: Testimonial[]) {
+  const verified = items.filter((t) => t.verified && t.author && typeof t.rating === "number");
+  if (verified.length === 0) return null;
+  const avg = verified.reduce((s, t) => s + (t.rating as number), 0) / verified.length;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": ORG_ID,
+    name: siteConfig.name,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: Number(avg.toFixed(1)),
+      reviewCount: verified.length,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    review: verified.map((t) => ({
+      "@type": "Review",
+      reviewRating: { "@type": "Rating", ratingValue: t.rating, bestRating: 5, worstRating: 1 },
+      author: { "@type": "Person", name: t.author },
+      reviewBody: t.quote,
     })),
   };
 }

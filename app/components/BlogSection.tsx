@@ -5,57 +5,25 @@ import { useRef } from "react";
 import SectionReveal from "./SectionReveal";
 import Eyebrow from "./Eyebrow";
 import SplitText from "./SplitText";
+import { sortedPosts } from "../lib/blog";
 
-const POSTS = [
-  {
-    id: "b01",
-    tag: "AI for HR",
-    tagColor: "#FF2E97",
-    date: "May 28, 2025",
-    readTime: "6 min read",
-    title: "Why Most AI Training Fails (And What Actually Sticks)",
-    excerpt:
-      "The dirty secret of corporate AI rollouts: most training doesn't change how people actually work. Here's the framework that does.",
-    link: "/services/corporate-ai-training",
-    featured: true,
-  },
-  {
-    id: "b02",
-    tag: "Automation",
-    tagColor: "#00F0FF",
-    date: "May 14, 2025",
-    readTime: "4 min read",
-    title: "5 n8n Workflows I Set Up for Every Client",
-    excerpt:
-      "The automations that deliver real hours back, every single time. With step-by-step setup notes.",
-    link: "/services/ai-automation",
-    featured: false,
-  },
-  {
-    id: "b03",
-    tag: "Prompting",
-    tagColor: "#A855F7",
-    date: "Apr 30, 2025",
-    readTime: "5 min read",
-    title: "The Prompt I Use to Write a Week of Content in 20 Minutes",
-    excerpt:
-      "Stop writing from scratch. This single prompt chain handles ideation, draft, and formatting — across any topic.",
-    link: "/glossary/prompt-engineering",
-    featured: false,
-  },
-  {
-    id: "b04",
-    tag: "L&D",
-    tagColor: "#00F0FF",
-    date: "Apr 18, 2025",
-    readTime: "7 min read",
-    title: "How to Design a 'Learn by Doing' AI Bootcamp",
-    excerpt:
-      "The exact curriculum design process I use for kenai programs — from outcome mapping to capstone projects.",
-    link: "/services/ai-bootcamps",
-    featured: false,
-  },
-];
+const POSTS = sortedPosts()
+  .slice(0, 4)
+  .map((p, i) => ({
+    id: p.slug,
+    tag: p.tag,
+    tagColor: p.tagColor,
+    date: new Date(p.date).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    }),
+    readTime: `${p.readMins} min read`,
+    title: p.title,
+    excerpt: p.excerpt,
+    link: `/blog/${p.slug}`,
+    featured: i === 0,
+  }));
 
 function FeaturedPost({ post }: { post: (typeof POSTS)[0] }) {
   const ref = useRef(null);
@@ -400,7 +368,7 @@ export default function BlogSection() {
 
         <SectionReveal delay={0.2} style={{ marginTop: 40, textAlign: "center" as const }}>
           <motion.a
-            href="/glossary"
+            href="/blog"
             whileHover={{ y: -2, boxShadow: "inset 0 0 0 1px #00F0FF, 0 0 22px rgba(0,240,255,0.3)" }}
             style={{
               fontFamily: "'JetBrains Mono', monospace",
@@ -421,7 +389,7 @@ export default function BlogSection() {
               cursor: "none",
             }}
           >
-            &gt; explore the AI glossary
+            &gt; all posts
           </motion.a>
         </SectionReveal>
       </div>
