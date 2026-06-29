@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 import SectionReveal from "./SectionReveal";
 import Eyebrow from "./Eyebrow";
 
@@ -12,6 +13,7 @@ const OFFERINGS = [
     title: "Work",
     accent: "shops",
     body: "High-impact, hands-on sessions that get a team using AI tools the same day. Zero fluff, immediate wins.",
+    href: "/services/ai-workshops",
     list: [
       "Live build alongside the trainer",
       "Role-specific use cases (HR, ops, leadership)",
@@ -24,6 +26,7 @@ const OFFERINGS = [
     title: "Boot",
     accent: "camps",
     body: "Structured, multi-week programs that take a cohort from curious to genuinely capable — projects, not theory.",
+    href: "/services/ai-bootcamps",
     list: [
       "Progressive skill path with real projects",
       "Automation & agent building",
@@ -36,6 +39,7 @@ const OFFERINGS = [
     title: "Corporate ",
     accent: "training",
     body: "Rollouts tailored to your stack, policies and goals. We meet your teams where they work and embed AI into it.",
+    href: "/services/corporate-ai-training",
     list: [
       "Custom curriculum to your workflows",
       "Tool integration (M365, Google, n8n & more)",
@@ -48,6 +52,7 @@ const OFFERINGS = [
     title: "Ad",
     accent: "visory",
     body: "Fractional AI guidance for leaders. Strategy, governance and the roadmap to make adoption stick — not stall.",
+    href: "/services/ai-advisory",
     list: [
       "AI adoption strategy & roadmap",
       "Responsible-use & governance guardrails",
@@ -57,7 +62,7 @@ const OFFERINGS = [
 ];
 
 function OffCard({
-  tag, sub, title, accent, body, list, delay,
+  tag, sub, title, accent, body, list, href, delay,
 }: (typeof OFFERINGS)[0] & { delay: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -141,6 +146,20 @@ function OffCard({
             </li>
           ))}
         </ul>
+        <Link
+          href={href}
+          style={{
+            display: "inline-block",
+            marginTop: 18,
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 12,
+            letterSpacing: "0.06em",
+            color: "#FF2E97",
+            textDecoration: "none",
+          }}
+        >
+          &gt; See details →
+        </Link>
       </div>
     </motion.article>
   );

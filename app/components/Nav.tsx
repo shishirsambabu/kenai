@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { label: "What", href: "#what" },
-  { label: "Offerings", href: "#offerings" },
+  { label: "Services", href: "/services" },
   { label: "Products", href: "#products" },
-  { label: "Resources", href: "#resources" },
-  { label: "Blog", href: "#blog" },
-  { label: "Founder", href: "#about" },
+  { label: "Glossary", href: "/glossary" },
+  { label: "Tools", href: "/tools/ai-readiness" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Nav() {

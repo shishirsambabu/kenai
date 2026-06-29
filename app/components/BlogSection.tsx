@@ -16,7 +16,7 @@ const POSTS = [
     title: "Why Most AI Training Fails (And What Actually Sticks)",
     excerpt:
       "The dirty secret of corporate AI rollouts: most training doesn't change how people actually work. Here's the framework that does.",
-    link: "#blog",
+    link: "/services/corporate-ai-training",
     featured: true,
   },
   {
@@ -28,7 +28,7 @@ const POSTS = [
     title: "5 n8n Workflows I Set Up for Every Client",
     excerpt:
       "The automations that deliver real hours back, every single time. With step-by-step setup notes.",
-    link: "#blog",
+    link: "/services/ai-automation",
     featured: false,
   },
   {
@@ -40,7 +40,7 @@ const POSTS = [
     title: "The Prompt I Use to Write a Week of Content in 20 Minutes",
     excerpt:
       "Stop writing from scratch. This single prompt chain handles ideation, draft, and formatting — across any topic.",
-    link: "#blog",
+    link: "/glossary/prompt-engineering",
     featured: false,
   },
   {
@@ -52,7 +52,7 @@ const POSTS = [
     title: "How to Design a 'Learn by Doing' AI Bootcamp",
     excerpt:
       "The exact curriculum design process I use for kenai programs — from outcome mapping to capstone projects.",
-    link: "#blog",
+    link: "/services/ai-bootcamps",
     featured: false,
   },
 ];
@@ -400,7 +400,7 @@ export default function BlogSection() {
 
         <SectionReveal delay={0.2} style={{ marginTop: 40, textAlign: "center" as const }}>
           <motion.a
-            href="#blog"
+            href="/glossary"
             whileHover={{ y: -2, boxShadow: "inset 0 0 0 1px #00F0FF, 0 0 22px rgba(0,240,255,0.3)" }}
             style={{
               fontFamily: "'JetBrains Mono', monospace",
@@ -421,7 +421,7 @@ export default function BlogSection() {
               cursor: "none",
             }}
           >
-            &gt; all posts
+            &gt; explore the AI glossary
           </motion.a>
         </SectionReveal>
       </div>

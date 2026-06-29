@@ -14,6 +14,7 @@ import GumroadSection from "./components/GumroadSection";
 import ResourcesSection from "./components/ResourcesSection";
 import BlogSection from "./components/BlogSection";
 import ContactSection from "./components/ContactSection";
+import FaqSection from "./components/FaqSection";
 import NewsletterSection from "./components/NewsletterSection";
 import SiteFooter from "./components/SiteFooter";
 import ParticleField from "./components/ParticleField";
@@ -42,6 +43,7 @@ export default function Home() {
         <BlogSection />
         <AboutSection />
         <ProofSection />
+        <FaqSection />
         <ContactSection />
         <NewsletterSection />
       </main>

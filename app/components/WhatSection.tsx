@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
+import Link from "next/link";
 import SectionReveal from "./SectionReveal";
 import Eyebrow from "./Eyebrow";
 
@@ -11,20 +12,23 @@ const CARDS = [
     num: "// 01",
     title: "AI for HR & L&D",
     body: "Consulting and training that helps HR teams adopt AI for hiring, onboarding, ops and people decisions — responsibly and fast.",
+    href: "/services/ai-training-for-hr",
   },
   {
     num: "// 02",
     title: "AI for business",
     body: "Automation and AI training for corporates and leaders. Cut busywork, ship faster, and make AI a daily working tool — not a buzzword.",
+    href: "/services/ai-training-for-business",
   },
   {
     num: "// 03",
     title: "AI for colleges",
     body: "Industry-ready AI & automation programs for students and faculty. Bridge the gap between the syllabus and what the market actually needs.",
+    href: "/services/ai-training-for-colleges",
   },
 ];
 
-function DoCard({ num, title, body, delay }: { num: string; title: string; body: string; delay: number }) {
+function DoCard({ num, title, body, href, delay }: { num: string; title: string; body: string; href: string; delay: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
@@ -86,7 +90,21 @@ function DoCard({ num, title, body, delay }: { num: string; title: string; body:
       >
         {title}
       </h3>
-      <p style={{ color: "#9aa0b3", fontSize: "1.02rem" }}>{body}</p>
+      <p style={{ color: "#9aa0b3", fontSize: "1.02rem", marginBottom: 16 }}>{body}</p>
+      <Link
+        href={href}
+        style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 12,
+          letterSpacing: "0.06em",
+          color: "#00F0FF",
+          textDecoration: "none",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        &gt; Explore this service →
+      </Link>
     </motion.div>
   );
 }
