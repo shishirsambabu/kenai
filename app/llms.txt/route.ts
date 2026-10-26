@@ -20,7 +20,7 @@ export async function GET() {
   lines.push(`# kenai — ${siteConfig.tagline}`);
   lines.push("");
   lines.push(
-    `> kenai is an AI consulting and training studio founded by ${founder.name} (${founder.alternateName}). It helps HR teams, businesses and colleges actually *do* AI through hands-on workshops, bootcamps, automation and advisory. Tagline: "${siteConfig.tagline}" India-first, globally relevant.`,
+    `> kenai is an AI consulting, training and building studio founded by ${founder.name} (${founder.alternateName}). It helps HR teams, businesses and colleges actually *do* AI through hands-on workshops, bootcamps, automation and advisory — and, through Forward Deployed Engineering and AI-native building, embeds with teams to build production AI systems with them. Tagline: "${siteConfig.tagline}" India-first, globally relevant.`,
   );
   lines.push("");
   lines.push(

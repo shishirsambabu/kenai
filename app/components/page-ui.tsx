@@ -7,13 +7,15 @@ export function Container({
   children,
   width = 1180,
   style,
+  id,
 }: {
   children: React.ReactNode;
   width?: number;
   style?: React.CSSProperties;
+  id?: string;
 }) {
   return (
-    <div style={{ width: `min(${width}px,92vw)`, margin: "0 auto", ...style }}>
+    <div id={id} style={{ width: `min(${width}px,92vw)`, margin: "0 auto", ...style }}>
       {children}
     </div>
   );

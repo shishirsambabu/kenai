@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { label: "Bootcamp", href: "/bootcamp" },
+  { label: "Build", href: "#build" },
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
   { label: "Glossary", href: "/glossary" },
-  { label: "Tools", href: "/tools/ai-readiness" },
   { label: "About", href: "/about" },
 ];
 

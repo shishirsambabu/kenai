@@ -392,6 +392,100 @@ export const services: Service[] = [
     related: ["ai-training-for-business", "ai-bootcamps", "ai-advisory"],
     accent: "#FF2E97",
   },
+  {
+    slug: "forward-deployed-engineering",
+    name: "Forward Deployed Engineering (FDE)",
+    shortName: "Forward Deployed Engineering",
+    eyebrow: "Service · We build with you",
+    tagline: "We embed with your team and build the AI solution — in your environment, until it ships.",
+    summary:
+      "Forward Deployed Engineering by kenai: we embed with your team and build production AI solutions inside your own systems. Outcome-led, not advisory. By Shishir Babu.",
+    intro: [
+      "Forward Deployed Engineering (FDE) is a delivery model where an engineer embeds directly with your team, learns your real problems, and builds a working AI solution inside your own environment — not a slide deck or a recommendation, but a system that actually runs in production.",
+      "Pioneered by the most ambitious AI companies, the FDE model is how serious organisations get AI from idea to production. kenai brings it to businesses that want AI built *with* them — fast, hands-on, and measured by what ships, not what's presented.",
+    ],
+    forWho: [
+      "Teams that need AI shipped, not just advised on",
+      "Businesses with a real problem and no in-house AI engineer",
+      "Leaders who've had strategy decks but no working system",
+      "Orgs that want to own and extend the solution after we leave",
+    ],
+    outcomes: [
+      "A working AI solution running in your real environment",
+      "Your team upskilled by building alongside us",
+      "Full documentation and handover — you own it",
+      "Weeks to production, not months of slideware",
+    ],
+    includes: [
+      "Embedded discovery inside your actual workflows",
+      "Hands-on build in your stack (Claude, agents, automation, integrations)",
+      "Iteration with your team until it works in production",
+      "Handover, documentation and capability transfer",
+    ],
+    faqs: [
+      {
+        q: "What is a Forward Deployed Engineer (FDE)?",
+        a: "A Forward Deployed Engineer embeds with your team to understand your problems and build a working solution inside your own environment, rather than advising from the outside. It's the fastest, most reliable way to get AI into production.",
+      },
+      {
+        q: "How is FDE different from consulting?",
+        a: "Consulting gives you advice and a deck. Forward Deployed Engineering gives you a shipped, working system — we build it with you, in your stack, and hand it over so your team owns it.",
+      },
+      {
+        q: "Do we keep the solution?",
+        a: "Yes. Capability transfer is central — we document everything and upskill your team so you own and can extend the solution after we leave.",
+      },
+    ],
+    related: ["ai-native-building", "ai-automation", "ai-advisory"],
+    accent: "#FF2E97",
+  },
+  {
+    slug: "ai-native-building",
+    name: "AI-Native Building Services",
+    shortName: "AI-Native Building",
+    eyebrow: "Service · Done with you",
+    tagline: "We build AI-native products, agents and workflows — designed around AI from the ground up.",
+    summary:
+      "AI-native building by kenai: agents, copilots, automations and internal tools designed around AI from the first line — built with you, by Shishir Babu.",
+    intro: [
+      "AI-native building means designing systems around AI from the very first line — agents, copilots, automations and internal tools where AI is the core of how the product works, not a feature bolted on afterwards.",
+      "Most 'AI features' are an afterthought stapled onto an old workflow. kenai builds AI-native: we rethink the workflow around what AI can now do, then build the system with you — so you get leverage, not a gimmick.",
+    ],
+    forWho: [
+      "Businesses that want to build an AI product or internal tool",
+      "Teams replacing manual workflows with AI-native ones",
+      "Founders who want an AI-first build partner",
+      "Orgs ready to go beyond off-the-shelf chatbots",
+    ],
+    outcomes: [
+      "A custom AI-native system — agent, copilot, automation or tool",
+      "Workflows redesigned around AI, not retrofitted onto it",
+      "Something that works in production, not a throwaway prototype",
+      "A team that understands and can extend what was built",
+    ],
+    includes: [
+      "AI-native design: rethinking the workflow around AI",
+      "Building agents, copilots, RAG and automations",
+      "Integration with your tools and data (MCP, APIs)",
+      "Testing, handover and iteration",
+    ],
+    faqs: [
+      {
+        q: "What does 'AI-native' mean?",
+        a: "AI-native means the system is designed around AI from the ground up — AI is the core of how it works, not a button added to an existing product. It's the difference between a tool that merely has AI in it and one built to think.",
+      },
+      {
+        q: "Do you actually build, or just advise?",
+        a: "We build. AI-Native Building is done-with-you delivery — working agents, copilots and automations in your environment, delivered through our Forward Deployed Engineering model.",
+      },
+      {
+        q: "What can you build?",
+        a: "Agents, copilots, RAG systems over your own knowledge, automations and internal AI tools — integrated with the tools and data you already use.",
+      },
+    ],
+    related: ["forward-deployed-engineering", "ai-automation", "ai-advisory"],
+    accent: "#00F0FF",
+  },
 ];
 
 /* ------------------------------------------------------------------ */
